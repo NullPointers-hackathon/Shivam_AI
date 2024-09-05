@@ -15,14 +15,14 @@ const Navbar = () => {
     {
       label: "StudyPods",
       icon: <SiSololearn />,
-      route: "/BuzzWrite",
+      route: "/study-pods",
     },
     { label: "Code-Editor", icon: <IoCodeSharp />, route: "/solution-page" },
-    { label: "Speech-Analyser", icon: <IoAnalyticsSharp />, route: "/solution-page" },
+    { label: "Speech-Analyser", icon: <IoAnalyticsSharp />, route: "/speech-analyser" },
     {
       label: "Feedback",
       icon: <VscFeedback />,
-      route: "/BuzzWrite",
+      route: "/feedback",
     },
   ];
   return (
