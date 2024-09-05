@@ -10,8 +10,10 @@ const SpeechAnalyzer = () => {
   const [status, setStatus] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [pronunciation, setPronunciation] = useState("");
-  const recognizerRef = useRef(null); // Use useRef to hold the recognizer instance
   const [isRecognizing, setIsRecognizing] = useState(false); // To track if recognition is ongoing
+  const [recognizedText, setRecognizedText] = useState(""); // To store the recognized text
+  const [score, setScore] = useState(null); // To store the score
+  const recognizerRef = useRef(null); // Use useRef to hold the recognizer instance
 
   useEffect(() => {
     dispatch(setTitle("Speech Analyzer"));
@@ -35,91 +37,58 @@ const SpeechAnalyzer = () => {
   const handleStartButtonClick = () => {
     const SpeechRecognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = language; // Set dynamically based on selected language
 
-    if (!SpeechRecognition) {
-      setStatus("Speech recognition is not supported in this browser.");
-      return;
-    }
+    recognition.start();
+    setIsRecognizing(true);
+    setStatus("Listening...");
 
-    if (recognizerRef.current) {
-      recognizerRef.current.stop(); // Stop any previous recognition if active
-    }
-
-    const recognizer = new SpeechRecognition();
-    recognizerRef.current = recognizer; // Save recognizer instance
-
-    recognizer.continuous = true;
-    recognizer.interimResults = false; // Set to false if you don't handle interim results
-    recognizer.lang = language;
-
-    recognizer.onstart = () => {
-      setIsRecognizing(true);
-      setStatus(`Listening in ${language}...`);
-      setShowResult(false);
-    };
-
-    recognizer.onresult = (event) => {
-      let transcript = "";
-      for (let i = event.resultIndex; i < event.results.length; i++) {
-        transcript += event.results[i][0].transcript;
-      }
-
-      setStatus("Speech recognition complete.");
-      setShowResult(true);
-
-      const originalParagraph = inputParagraphs[language];
-      const similarity = calculateWordSimilarity(originalParagraph, transcript);
-
-      if (similarity >= 0.7) {
-        setPronunciation(
-          `Excellent Pronunciation! Similarity: ${similarity.toFixed(2)}`
-        );
-      } else if (similarity >= 0.5) {
-        setPronunciation(
-          `Good Pronunciation. Similarity: ${similarity.toFixed(2)}`
-        );
-      } else {
-        setPronunciation(
-          `Needs Improvement. Similarity: ${similarity.toFixed(2)}`
-        );
-      }
-    };
-
-    recognizer.onerror = (event) => {
-      setStatus("Speech recognition error: " + event.error);
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      setRecognizedText(transcript);
+      evaluatePronunciation(transcript);
       setIsRecognizing(false);
+      setStatus("Recognition completed");
     };
 
-    recognizer.onend = () => {
-      if (isRecognizing) {
-        setStatus("Restarting speech recognition...");
-        recognizer.start();
-      } else {
-        setStatus("Speech recognition stopped. Click 'Record' to start again.");
-      }
+    recognition.onerror = (event) => {
+      console.error("Speech recognition error:", event.error);
+      setIsRecognizing(false);
+      setStatus("Error occurred: " + event.error);
     };
 
-    recognizer.start();
+    recognition.onend = () => {
+      setIsRecognizing(false);
+      setStatus("Recognition ended");
+    };
+
+    recognizerRef.current = recognition; // Store the recognizer instance
   };
 
-  const handleStopButtonClick = () => {
-    if (recognizerRef.current) {
-      recognizerRef.current.stop();
-      setStatus("Speech recognition manually stopped.");
-      setIsRecognizing(false);
-    }
+  // Evaluate pronunciation by comparing the given text with the recognized text
+  const evaluatePronunciation = (transcript) => {
+    const similarity = compareTexts(inputParagraphs[language], transcript);
+    setScore(similarity);
+    setShowResult(true);
+    setPronunciation(`Your pronunciation is ${similarity}% similar to the given text.`);
   };
 
-  const calculateWordSimilarity = (str1, str2) => {
-    const words1 = new Set(str1.toLowerCase().split(/\s+/));
-    const words2 = new Set(str2.toLowerCase().split(/\s+/));
+  // Simple comparison logic to calculate similarity (0 to 100)
+  const compareTexts = (text1, text2) => {
+    const words1 = text1.toLowerCase().split(" ");
+    const words2 = text2.toLowerCase().split(" ");
+    let matches = 0;
 
-    const intersection = new Set(
-      [...words1].filter((word) => words2.has(word))
-    );
-    const union = new Set([...words1, ...words2]);
+    words1.forEach((word, index) => {
+      if (words2[index] && words2[index] === word) {
+        matches++;
+      }
+    });
 
-    return intersection.size / union.size;
+    return Math.round((matches / words1.length) * 100); // Return a percentage score
   };
 
   return (
@@ -147,8 +116,11 @@ const SpeechAnalyzer = () => {
               <option value="Ma-IN">Malayalam (IN)</option>
             </select>
           </div>
-          <button className="speech-analyzer-start-button"
-          onClick={handleStartButtonClick}>
+          <button
+            className="speech-analyzer-start-button"
+            onClick={handleStartButtonClick}
+            disabled={isRecognizing} // Disable button when recognizing
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -157,7 +129,7 @@ const SpeechAnalyzer = () => {
               fill="none"
               className="svg-icon"
             >
-              <g stroke-width="2" stroke-linecap="round" stroke="#ff342b">
+              <g strokeWidth="2" strokeLinecap="round" stroke="#ff342b">
                 <rect y="3" x="9" width="6" rx="3" height="11"></rect>
                 <path d="m12 18v3"></path>
                 <path d="m8 21h8"></path>
@@ -166,20 +138,12 @@ const SpeechAnalyzer = () => {
             </svg>
             <span className="speech-analyzer-lable">Record</span>
           </button>
-          <button
-            className="speech-analyzer-stop-button"
-            onClick={handleStopButtonClick}
-          >
-            Stop
-          </button>
         </div>
         <p>{status}</p>
         {showResult && (
           <div className="speech-analyzer-result">
             <h2>Analysis Result:</h2>
-            <p className="speech-analyzer-pronounciation">
-              {pronunciation} Excellent Pronunciation! Similarity:
-            </p>
+            <p className="speech-analyzer-pronounciation">{pronunciation}</p>
           </div>
         )}
       </div>
