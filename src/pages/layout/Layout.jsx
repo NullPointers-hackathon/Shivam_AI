@@ -6,7 +6,7 @@ const Layout = () => {
     <>
       <div
         className="layout-main-container"
-        style={{ display: "flex", flexDirection: "row", height: "100vh" }}
+        style={{ display: "flex", flexDirection: "row" }}
       >
         {/* Left section - could be a sidebar or static content */}
         <div

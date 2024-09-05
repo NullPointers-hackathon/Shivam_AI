@@ -2,4 +2,8 @@
   background-color: #131314;
   display: flex;
   border-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 1rem; /* Space between items */
+  padding: 1rem;
 }
