@@ -10,11 +10,9 @@ import Layout from "./pages/layout/Layout";
 import BuzzWrite from "./pages/buzzWrite/BuzzWrite";
 import { ChakraProvider } from "@chakra-ui/react";
 import Theme from "./Theme";
-import SolutionPage from "./pages/problemComponent/SolutionPage";
+import SolutionPage from "../src/components/specific/codeEditor/problemComponent/SolutionPage";
 import StudyPods from "./pages/studyPods/StudyPods";
 import StudyPodsView from "./pages/studyPodsView/StudyPodsView";
-
-import SolutionPage from "./components/specific/codeEditor/problemComponent/SolutionPage";
 import FeedBack from "./pages/feedback/FeedBack";
 export default function App() {
   return (
