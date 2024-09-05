@@ -47,7 +47,19 @@ export default function StudyPods() {
   };
 
   if (loading) {
-    return <p>Loading Study Pods...</p>;
+    return (
+      <div className="loading-study-pods">
+        <div class="honeycomb">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    );
   }
 
   if (error) {
