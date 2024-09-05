@@ -1,8 +1,30 @@
 import React from "react";
 import "./style.css"; 
-import Shivam_logo from "../../../../assets/images/Shivam_logo.png"
+import Shivam_logo from "../../../assets/images/Shivam_Logo.png"
+import { IoCodeSharp } from "react-icons/io5";
+import { SiSololearn } from "react-icons/si";
+import { FaPen } from "react-icons/fa6";
+import { IoAnalyticsSharp } from "react-icons/io5";
+import { VscFeedback } from "react-icons/vsc";
+import { NavLink } from "react-router-dom";
+import LogoutButton from "../../specific/auth/LogoutButton";
 
 const Navbar = () => {
+  const navItems = [
+    { label: "BuzzWrite", icon: <FaPen />, route: "/BuzzWrite" },
+    {
+      label: "StudyPods",
+      icon: <SiSololearn />,
+      route: "/BuzzWrite",
+    },
+    { label: "Code-Editor", icon: <IoCodeSharp />, route: "/solution-page" },
+    { label: "Speech-Analyser", icon: <IoAnalyticsSharp />, route: "/solution-page" },
+    {
+      label: "Feedback",
+      icon: <VscFeedback />,
+      route: "/BuzzWrite",
+    },
+  ];
   return (
     <div className="navbar">
       <div className="navbar-header">
@@ -12,61 +34,25 @@ const Navbar = () => {
       <div className="navbar-search-box">
         <input type="text" placeholder="Search....." />
       </div>
-      <div className="navbar-clear-all">
-        <button>Clear all chats</button>
-      </div>
-      <div className="navbar-history">
-      <div className="navbar-history-text">History</div>
-      </div>
-      <div className="navbar-history">
-        <ul>
-          <li>
-            <span role="img" aria-label="python">
-              🦜
-            </span>{" "}
-            Langchain 
-          </li>
-          <li>
-            <span role="img" aria-label="js">
-              🔗
-            </span>{" "}
-            Langchain 
-          </li>
-          <li>
-            <span role="img" aria-label="llama">
-              🦙
-            </span>{" "}
-            LlamaIndex
-          </li>
-          <li>
-            <span role="img" aria-label="chroma">
-              🌈
-            </span>{" "}
-            Chroma
-          </li>
-          <li>
-            <span role="img" aria-label="milvus">
-              🛸
-            </span>{" "}
-            Milvus
-          </li>
-          <li>
-            <span role="img" aria-label="faiss">
-              🧠
-            </span>{" "}
-            Faiss
-          </li>
-          <li>
-            <span role="img" aria-label="qdrant">
-              🧩
-            </span>{" "}
-            Qdrant
-          </li>
-        </ul>
-      </div>
-      <div className="navbar-add-button">
-        <button>+</button>
-      </div>
+      
+      <div className="sidebar-nav-items">
+          {navItems.map((item, index) => (
+            <NavLink
+              key={index}
+              to={item.route}
+              className={({ isActive }) =>
+                `sidebar-nav-item ${isActive ? "active" : ""}`
+              }
+            >
+              <i className="sidebar-fas">{item.icon}</i>
+              <span>{item.label}</span>
+            </NavLink>
+          ))}
+
+          <div className="sidebar-nav-item">
+            <LogoutButton />
+          </div>
+        </div>
     </div>
   );
 };
