@@ -14,7 +14,6 @@
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
   font-weight: 500;
-  font-family: "Poppins", system-ui;
   color: #666666;
 }
 .checkbox-container label {
@@ -26,9 +25,15 @@
 .form-control input[type="password"] {
   padding: 0.8rem;
   border: 1px solid #666666;
-  font-family: "Poppins", system-ui;
   border-radius: 0.8rem;
   font-size: 1rem;
+  font-family: "Readex Pro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "HEXP" 0;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 /* Focus styling for all input fields */
@@ -42,9 +47,9 @@
 
 /* Styling for the submit button */
 .form-control-input {
-    margin-top: 1rem;
+  margin-top: 1rem;
   padding: 1rem 2rem;
-  background: linear-gradient(#4FF4EA,#0863A5);
+  background: linear-gradient(#4ff4ea, #0863a5);
   color: #000;
   border: none;
   border-radius: 0.8rem;
@@ -53,6 +58,13 @@
   cursor: pointer;
   text-align: center;
   font-weight: 600;
+  font-family: "Readex Pro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "HEXP" 0;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .form-control-input:hover {
@@ -65,43 +77,56 @@
   width: 1.125rem;
   height: 1.125rem;
 }
-.form-control input[type="text"]{
-    color: #555;
-    background-color: #000;
+.form-control input[type="text"] {
+  color: #555;
+  background-color: #000;
+  font-family: "Readex Pro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "HEXP" 0;
+  font-size: 1rem;
+  cursor: pointer;
 }
-.form-control input[type="email"],input[type="password"]{
-    color: #555;
-    background-color: #000;
+.form-control input[type="email"],
+input[type="password"] {
+  color: #555;
+  background-color: #000;
+  font-family: "Readex Pro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "HEXP" 0;
+  font-size: 1rem;
+  cursor: pointer;
 }
-
-
 
 /* Additional styles for p tag in the password field */
 
 .Signup-divider {
-    margin: 20px 0;
-    position: relative;
-    font-size: 14px;
-    text-align: center;
-  }
-  
-  .Signup-divider::before,
-  .Signup-divider::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 30%;
-    height: 1px;
-    background: #555;
-  }
-  
-  .Signup-divider::before {
-    left: 0;
-  }
-  
-  .Signup-divider::after {
-    right: 0;
-  }
-  .google-button-login{
-    margin-bottom: 2rem;
-  }
+  margin: 20px 0;
+  position: relative;
+  font-size: 14px;
+  text-align: center;
+}
+
+.Signup-divider::before,
+.Signup-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background: #555;
+}
+
+.Signup-divider::before {
+  left: 0;
+}
+
+.Signup-divider::after {
+  right: 0;
+}
+.google-button-login {
+  margin-bottom: 2rem;
+}

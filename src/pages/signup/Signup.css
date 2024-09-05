@@ -1,35 +1,36 @@
-.Signup-main-container{
-    display: flex;
-    margin: 0;
-    align-items: center;
-    border: 1px solid linear-gradient(#18DDDD,#2479C7);
-    
-  }
-  .signup-left-container {
-    position: fixed;
-    width: 55%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: flex;
-  }
-  .signup-right-container {
-    text-align: center;
-    top: 0%;
-    margin-top: 2rem;
-    right: 5%;
-    position: absolute;
-    width: 35%;
-    height: 100vh;
-    /* padding: 3rem 3rem 6rem 0rem; */
-    overflow: hidden;
-  }
-  .signup-header{
-    margin-bottom: 1rem;
-  }
-  .signup-image {
-    height: 85%;
-    width: 70%;
-    margin: auto;
-  }
-  
+.Signup-main-container {
+  display: flex;
+  margin: 0;
+  align-items: center;
+  border: 1px solid linear-gradient(#18dddd, #2479c7);
+}
+.signup-left-container {
+  position: fixed;
+  width: 55%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+.signup-right-container {
+  text-align: center;
+  top: 0%;
+  margin-top: 2rem;
+  right: 5%;
+  position: absolute;
+  width: 35%;
+  /* height: 100vh; */
+  /* padding: 3rem 3rem 6rem 0rem; */
+  overflow: hidden;
+}
+.signup-header {
+  margin-bottom: 1rem;
+}
+.signup-image {
+  height: 85%;
+  width: 70%;
+  margin: auto;
+}
+.signup-header p a {
+  text-decoration: none;
+}

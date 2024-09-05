@@ -19,6 +19,7 @@ export default function PeerConnect() {
   const [userID, setUserID] = useState(null);
   const [userName, setUserName] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true); // Added loading state
   const dispatch = useDispatch();
   const db = getDatabase(app);
   const auth = getAuth();
@@ -67,9 +68,13 @@ export default function PeerConnect() {
             }))
           : [];
         setMessages(loadedMessages);
+        setLoading(false); // Set loading to false when messages are loaded
       });
 
-      return () => unsubscribe();
+      return () => {
+        setLoading(true); // Reset loading state on component unmount
+        unsubscribe();
+      };
     }
   }, [db, id]);
 
@@ -101,48 +106,60 @@ export default function PeerConnect() {
       <div>
         {error && <p style={{ color: "red" }}>{error}</p>}
         <div className="peer-connect-container">
-          <div className="peer-connect-inner-container">
-            {messages.map((msg) => (
-              <div
-                key={msg.id}
-                className={`peer-connect-message ${
-                  msg.userID === userID ? "peer-connect-message-self" : ""
-                }`}
-              >
-                {/* Render user icon for messages from other users */}
-                {msg.userID !== userID && (
-                  <FaUserCircle
-                    className="peer-connect-message-icon"
-                    style={{ marginRight: "1rem" }}
-                  />
-                )}
-
-                <div className="peer-connect-message-all-container">
-                  <strong
-                    className={`peer-connect-username ${
-                      msg.userID === userID
-                        ? "peer-connect-message-self-username"
-                        : ""
-                    }`}
-                  >
-                    {msg.userName}
-                  </strong>
-
-                  <div className="peer-connect-message-bubble">
-                    <span>{msg.text}</span>
-                  </div>
-                  <div className="peer-connect-message-time">
-                    {new Date(msg.timestamp).toLocaleTimeString()}
-                  </div>
-                </div>
-
-                {/* Render user icon for messages from the current user */}
-                {msg.userID === userID && (
-                  <FaUserCircle className="peer-connect-message-icon" />
-                )}
+          {loading ? (
+            <div className="loading-study-pods">
+              <div className="honeycomb">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
               </div>
-            ))}
-          </div>
+            </div>
+          ) : (
+            <div className="peer-connect-inner-container">
+              {messages.map((msg) => (
+                <div
+                  key={msg.id}
+                  className={`peer-connect-message ${
+                    msg.userID === userID ? "peer-connect-message-self" : ""
+                  }`}
+                >
+                  {msg.userID !== userID && (
+                    <FaUserCircle
+                      className="peer-connect-message-icon"
+                      style={{ marginRight: "1rem" }}
+                    />
+                  )}
+
+                  <div className="peer-connect-message-all-container">
+                    <strong
+                      className={`peer-connect-username ${
+                        msg.userID === userID
+                          ? "peer-connect-message-self-username"
+                          : ""
+                      }`}
+                    >
+                      {msg.userName}
+                    </strong>
+
+                    <div className="peer-connect-message-bubble">
+                      <span>{msg.text}</span>
+                    </div>
+                    <div className="peer-connect-message-time">
+                      {new Date(msg.timestamp).toLocaleTimeString()}
+                    </div>
+                  </div>
+
+                  {msg.userID === userID && (
+                    <FaUserCircle className="peer-connect-message-icon" />
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
 
           <div className="peer-connect-input-container">
             <textarea
