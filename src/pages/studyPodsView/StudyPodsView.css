@@ -1,0 +1,66 @@
+.study-pods-view-outer {
+  padding: 2rem 0;
+}
+.study-pods-view {
+  display: flex;
+  justify-content: center;
+}
+.study-pods-view img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 4rem;
+}
+.study-pods-view-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.study-pods-view-inner h1 {
+  margin: 1rem;
+  font-size: 3rem;
+}
+.study-pods-view-inner h3 {
+  font-weight: 400;
+}
+.study-pods-view-inner button {
+  margin: 1rem;
+  background: linear-gradient(to right, #01ced7, #7d1ba2);
+  font-family: "Readex Pro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "HEXP" 0;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #fbedfd;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+.study-pods-view-inner button:hover {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+.study-pods-view-inner button:active {
+  opacity: 0.5;
+}
+.study-pods-view-second-container {
+  display: flex;
+  align-items: flex-start;
+}
+.study-pods-view-second-container h1 {
+  color: #03cad6;
+  width: 50%;
+  margin-top: 0;
+}
+.study-pods-view-second-container p {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  font-weight: 300;
+}
