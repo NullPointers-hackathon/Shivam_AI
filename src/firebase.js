@@ -3,24 +3,26 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithPopup, FacebookAuthProvider } from "firebase/auth";
 import { doc, getFirestore, setDoc } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_APP_FIREBASE_API_KEY,
-    authDomain: import.meta.env.VITE_APP_FIREBASE_AUTH_DOMAIN,
-    projectId: import.meta.env.VITE_APP_FIREBASE_PROJECT_ID,
-    storageBucket: import.meta.env.VITE_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: import.meta.env.VITE_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: import.meta.env.VITE_APP_FIREBASE_APP_ID,
-    measurementId: import.meta.env.VITE_APP_FIREBASE_MEASUREMENT_ID,
+  apiKey: import.meta.env.VITE_APP_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_APP_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);  // Optional: Only if using Analytics
+const analytics = getAnalytics(app); // Optional: Only if using Analytics
 const fbProvider = new FacebookAuthProvider();
 
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+export const storage = getStorage(app); // Initialize Firebase Storage
 
 export const FacebookAuth = async () => {
   try {
@@ -31,23 +33,22 @@ export const FacebookAuth = async () => {
 
     // The signed-in user info
     const user = result.user;
-    const userDocRef = doc(db, 'Users', user.uid);  // Using user.uid as the document ID
+    const userDocRef = doc(db, "Users", user.uid); // Using user.uid as the document ID
     await setDoc(userDocRef, {
       displayName: user.displayName,
       uid: user.uid,
     });
     console.log("Facebook User Info:", user);
 
-
-    return { user, accessToken };  // Returning user and token if needed
+    return { user, accessToken }; // Returning user and token if needed
   } catch (error) {
     // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
     const credential = FacebookAuthProvider.credentialFromError(error);
-    
+
     console.error("Facebook Login Error:", errorCode, errorMessage);
 
-    return { errorCode, errorMessage, credential };  // Returning error details
+    return { errorCode, errorMessage, credential }; // Returning error details
   }
 };
