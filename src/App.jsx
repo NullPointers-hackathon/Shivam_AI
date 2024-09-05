@@ -7,6 +7,7 @@ import store from "./redux/store";
 import Login from "./pages/login/Login";
 import PeerConnect from "./pages/peerConnect/PeerConnect";
 import Layout from "./pages/layout/Layout";
+import StudyPods from "./pages/studyPods/StudyPods";
 
 export default function App() {
   return (
@@ -18,7 +19,8 @@ export default function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route element={<Layout />}>
-            <Route path="/peer-connect" element={<PeerConnect />}></Route>
+              <Route path="/peer-connect" element={<PeerConnect />}></Route>
+              <Route path="/study-pods" element={<StudyPods />}></Route>
             </Route>
           </Routes>
         </Router>

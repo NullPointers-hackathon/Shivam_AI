@@ -1,0 +1,19 @@
+.study-pod {
+  background: #181818;
+  margin: 1rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+.study-pod img {
+  width: 200px;
+  border-radius: 0.5rem;
+}
+.study-pod p {
+  width: 15vw;
+  color: #a7a7a7;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+}
