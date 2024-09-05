@@ -103,39 +103,42 @@ export default function PeerConnect() {
     <>
       <Header />
       <div>
-  {error && <p style={{ color: "red" }}>{error}</p>}
-  <div className="peer-connect-container">
-    <div className="peer-connect-inner-container">
-      {messages.map((msg) => (
-        <div
-          key={msg.id}
-          className={`peer-connect-message ${msg.userId === currentUserId ? "peer-connect-message-self" : ""}`}
-        >
-          {/* Username and message */}
-          <div className="peer-connect-message-bubble">
-            <strong className="peer-connect-username">{msg.userName}</strong>
-            <span>{msg.text}</span>
-            <div className="peer-connect-message-time">
-              {new Date(msg.timestamp).toLocaleTimeString()}
-            </div>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        <div className="peer-connect-container">
+          <div className="peer-connect-inner-container">
+            {messages.map((msg) => (
+              <div
+                key={msg.id}
+                className={`peer-connect-message ${
+                  msg.userID === userID ? "peer-connect-message-self" : ""
+                }`}
+              >
+                {/* Username and message */}
+                <div className="peer-connect-message-bubble">
+                  <strong className="peer-connect-username">
+                    {msg.userName}
+                  </strong>
+                  <span>{msg.text}</span>
+                  <div className="peer-connect-message-time">
+                    {new Date(msg.timestamp).toLocaleTimeString()}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Text input and send button */}
+          <div className="peer-connect-input-container">
+            <textarea
+              value={newMessage}
+              onChange={(e) => setNewMessage(e.target.value)}
+              placeholder="Type your message..."
+              className="peer-connect-text"
+            />
+            <IoSend className="peer-connect-send" onClick={handleSendMessage} />
           </div>
         </div>
-      ))}
-    </div>
-
-    {/* Text input and send button */}
-    <div className="peer-connect-input-container">
-      <textarea
-        value={newMessage}
-        onChange={(e) => setNewMessage(e.target.value)}
-        placeholder="Type your message..."
-        className="peer-connect-text"
-      />
-      <IoSend className="peer-connect-send" onClick={handleSendMessage}/>
-    </div>
-  </div>
-</div>
-
+      </div>
     </>
   );
 }
