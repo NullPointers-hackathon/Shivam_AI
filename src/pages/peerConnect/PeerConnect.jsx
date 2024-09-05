@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { getDatabase, ref, onValue, push } from "firebase/database";
 import { getAuth } from "firebase/auth";
-import { app } from "../../firebase"; // Adjust the import path based on your Firebase initialization file
-import { useLocation } from "react-router-dom"; // Import useLocation
+import { app } from "../../firebase";
+import { useLocation } from "react-router-dom";
 import Header from "../../components/common/header/Header";
 import { useDispatch } from "react-redux";
 import { setTitle } from "../../redux/slices/titleSlice";
-import { getFirestore, doc, getDoc } from "firebase/firestore"; // Import Firestore
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 import "./peerConnect.css";
 import { IoSend } from "react-icons/io5";
+import { FaUserCircle } from "react-icons/fa";
 
 export default function PeerConnect() {
   const location = useLocation();
@@ -16,7 +17,7 @@ export default function PeerConnect() {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [userID, setUserID] = useState(null);
-  const [userName, setUserName] = useState(""); // Store user name
+  const [userName, setUserName] = useState("");
   const [error, setError] = useState("");
   const dispatch = useDispatch();
   const db = getDatabase(app);
@@ -24,17 +25,15 @@ export default function PeerConnect() {
   const firestore = getFirestore(app);
 
   useEffect(() => {
-    dispatch(setTitle("Peer Connect")); // Set the page title
+    dispatch(setTitle("Peer Connect"));
   }, [dispatch]);
 
-  // Fetch the logged-in user's ID and name
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (user) {
         setUserID(user.uid);
-        setUserName(user.displayName || "Anonymous"); // Get the display name from Firebase Auth
+        setUserName(user.displayName || "Anonymous");
 
-        // If the display name is not available, fetch it from Firestore (if applicable)
         if (!user.displayName) {
           try {
             const userRef = doc(firestore, "Users", user.uid);
@@ -55,12 +54,10 @@ export default function PeerConnect() {
     return () => unsubscribe();
   }, [auth, firestore]);
 
-  // Fetch messages for the pod
   useEffect(() => {
     if (id) {
       const messagesRef = ref(db, `StudyPods/${id}/messages`);
 
-      // Listen for new messages
       const unsubscribe = onValue(messagesRef, (snapshot) => {
         const data = snapshot.val();
         const loadedMessages = data
@@ -76,7 +73,6 @@ export default function PeerConnect() {
     }
   }, [db, id]);
 
-  // Handle sending new message
   const handleSendMessage = async () => {
     if (!userID || !newMessage.trim()) {
       setError("Please log in and enter a message.");
@@ -87,7 +83,7 @@ export default function PeerConnect() {
       const messagesRef = ref(db, `StudyPods/${id}/messages`);
       await push(messagesRef, {
         userID,
-        userName, // Include the user's name
+        userName,
         text: newMessage,
         timestamp: new Date().toISOString(),
       });
@@ -113,21 +109,41 @@ export default function PeerConnect() {
                   msg.userID === userID ? "peer-connect-message-self" : ""
                 }`}
               >
-                {/* Username and message */}
-                <div className="peer-connect-message-bubble">
-                  <strong className="peer-connect-username">
+                {/* Render user icon for messages from other users */}
+                {msg.userID !== userID && (
+                  <FaUserCircle
+                    className="peer-connect-message-icon"
+                    style={{ marginRight: "1rem" }}
+                  />
+                )}
+
+                <div className="peer-connect-message-all-container">
+                  <strong
+                    className={`peer-connect-username ${
+                      msg.userID === userID
+                        ? "peer-connect-message-self-username"
+                        : ""
+                    }`}
+                  >
                     {msg.userName}
                   </strong>
-                  <span>{msg.text}</span>
+
+                  <div className="peer-connect-message-bubble">
+                    <span>{msg.text}</span>
+                  </div>
                   <div className="peer-connect-message-time">
                     {new Date(msg.timestamp).toLocaleTimeString()}
                   </div>
                 </div>
+
+                {/* Render user icon for messages from the current user */}
+                {msg.userID === userID && (
+                  <FaUserCircle className="peer-connect-message-icon" />
+                )}
               </div>
             ))}
           </div>
 
-          {/* Text input and send button */}
           <div className="peer-connect-input-container">
             <textarea
               value={newMessage}

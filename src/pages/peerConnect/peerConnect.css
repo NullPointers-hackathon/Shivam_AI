@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   height: 80vh;
-  justify-content: space-between; /* Dark background */
+  justify-content: space-between;
+  /* Dark background */
 }
 
 /* Inner container holding messages */
@@ -20,19 +21,19 @@
 
 /* Message bubble styling */
 .peer-connect-message-bubble {
-  background-color: #1f2e37; /* Dark bubble for messages */
+  background-color: #001623; /* Dark bubble for messages */
   color: white;
-  padding: 10px 15px;
+  padding: 1rem 2rem;
   border-radius: 20px;
-  max-width: 60%;
   word-wrap: break-word;
-  font-size: 14px;
+  font-size: 18px;
+  margin: 0.5rem 0;
 }
 
 /* Time display under each message */
 .peer-connect-message-time {
   font-size: 12px;
-  color: #b0b0b0;
+  color: #8ca0b4;
   margin-left: 10px;
 }
 
@@ -50,6 +51,8 @@
   margin-right: 10px;
   font-weight: bold;
   color: #a0a0a0;
+  padding: 1rem 0;
+  margin-top: 1rem;
 }
 
 /* Chat input area */
@@ -61,7 +64,7 @@
   border-radius: 15px;
   border: none;
   background-color: #020203;
-  color: white;
+  color: rgba(255, 255, 255, 0.41);
   resize: none;
   display: flex;
   margin-top: 10px;
@@ -85,4 +88,58 @@
   border-radius: 0.6rem;
   background-color: #020203;
   padding: 0 5px;
+}
+.peer-connect-inner-container {
+  overflow: auto; /* Allow scrolling */
+}
+
+/* Hide scrollbar */
+.peer-connect-inner-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+.peer-connect-message-time {
+  margin-bottom: 1rem;
+}
+/* Add these styles to peerConnect.css */
+
+/* User icon styling */
+/* Add these styles to peerConnect.css */
+
+/* User icon styling */
+.peer-connect-message-icon {
+  font-size: 3rem;
+  margin: 0 10px; /* Space between icon and message */
+  display: inline-block; /* Ensure background styles apply correctly */
+  -webkit-background-clip: text; /* Clip background to text for WebKit browsers */
+  -webkit-text-fill-color: transparent; /* Make text fill transparent for gradient */
+  background: linear-gradient(
+    to right,
+    #01ced7,
+    #7d1ba2
+  ); /* Gradient background */
+  background-clip: text; /* Clip background to text for modern browsers */
+}
+
+/* Adjust message container to accommodate the icon */
+.peer-connect-message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+/* Ensure proper spacing for messages with icons */
+.peer-connect-message-self {
+  justify-content: flex-end;
+}
+
+.peer-connect-message-self .peer-connect-message-icon {
+  margin: 0 10px 0 0; /* Margin for the self message icon */
+}
+
+.peer-connect-message-self .peer-connect-message-bubble {
+  margin-right: 40px; /* Space for self message icon */
+}
+
+.peer-connect-message .peer-connect-message-icon {
+  margin-right: 10px; /* Space for other user's icon */
 }
