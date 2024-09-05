@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import Login from "./pages/login/Login";
 import PeerConnect from "./pages/peerConnect/PeerConnect";
+import Layout from "./pages/layout/Layout";
 
 export default function App() {
   return (
@@ -16,7 +17,9 @@ export default function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
+            <Route element={<Layout />}>
             <Route path="/peer-connect" element={<PeerConnect />}></Route>
+            </Route>
           </Routes>
         </Router>
       </Provider>
