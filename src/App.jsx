@@ -10,8 +10,7 @@ import Layout from "./pages/layout/Layout";
 import BuzzWrite from "./pages/buzzWrite/BuzzWrite";
 import { ChakraProvider } from "@chakra-ui/react";
 import Theme from "./Theme";
-import SolutionPage from "./pages/problemComponent/SolutionPage";
-
+import SolutionPage from "./components/specific/codeEditor/problemComponent/SolutionPage";
 export default function App() {
   return (
     <>
