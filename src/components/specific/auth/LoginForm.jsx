@@ -29,7 +29,7 @@ const LoginForm = () => {
         email: user.email
       }));
       toast.success("User successfully logged in");
-      navigate("/dashboard");
+      navigate("/BuzzWrite");
     } catch (err) {
       dispatch(loginFailure(err.message));
       setError(err.message);
