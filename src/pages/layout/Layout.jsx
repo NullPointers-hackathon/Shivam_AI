@@ -12,7 +12,7 @@ const Layout = () => {
         {/* Left section - could be a sidebar or static content */}
         <div
           className="layout-left-container"
-          style={{ width: "20%", margin: "0", padding: "1rem" }}
+          style={{ width: "20%", margin: "0" }}
         >
           <Navbar />
         </div>

@@ -10,7 +10,7 @@ import Layout from "./pages/layout/Layout";
 import BuzzWrite from "./pages/buzzWrite/BuzzWrite";
 import { ChakraProvider } from "@chakra-ui/react";
 import Theme from "./Theme";
-import SolutionPage from "./pages/problemComponent/SolutionPage";
+// import SolutionPage from "./pages/problemComponent/SolutionPage";
 import StudyPods from "./pages/studyPods/StudyPods";
 import StudyPodsView from "./pages/studyPodsView/StudyPodsView";
 
@@ -39,17 +39,10 @@ export default function App() {
               <Route path="/peer-connect" element={<PeerConnect />}></Route>
               <Route path="/buzzwrite" element={<BuzzWrite />} />
               <Route path="/feedback" element={<FeedBack />} />
+              <Route path="/solution-page" element={<SolutionPage />} />
             </Route>
 
             {/* Route with ChakraProvider */}
-            <Route
-              path="/solution-page"
-              element={
-                <ChakraProvider theme={Theme}>
-                  <SolutionPage />
-                </ChakraProvider>
-              }
-            />
           </Routes>
         </Router>
       </Provider>
