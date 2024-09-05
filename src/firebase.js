@@ -4,6 +4,7 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithPopup, FacebookAuthProvider,GoogleAuthProvider } from "firebase/auth";
 import { doc, getFirestore, setDoc } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
