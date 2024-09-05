@@ -11,6 +11,7 @@ import BuzzWrite from "./pages/buzzWrite/BuzzWrite";
 import { ChakraProvider } from "@chakra-ui/react";
 import Theme from "./Theme";
 import SolutionPage from "./pages/problemComponent/SolutionPage";
+import SpeechAnalyzer from "./pages/speechAnalyzer/SpeechAnalyzer";
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
             <Route element={<Layout />}>
             <Route path="/peer-connect" element={<PeerConnect />}></Route>
             <Route path="/buzzwrite" element={<BuzzWrite/>}/>
+            <Route path="/speech-analyzer" element={<SpeechAnalyzer/>}/>
             </Route>
 
             {/* Route with ChakraProvider */}
