@@ -4,7 +4,7 @@ import { auth, db } from '../../firebase'; // Import Firestore instance
 import { doc, setDoc } from 'firebase/firestore';
 
 const FeedBack = () => {
-  const [rating, setRating] = useState(4);
+  const [rating, setRating] = useState(0);
   const [feedback, setFeedback] = useState('');
 
   const handleRatingClick = (value) => {
@@ -32,7 +32,7 @@ const FeedBack = () => {
 
         alert(`Feedback submitted! Rating: ${rating}/5\nFeedback: ${feedback}`);
         setFeedback(''); // Reset the feedback field
-        setRating(4);    // Reset rating to default
+        setRating(0);    // Reset rating to default
       } else {
         alert('User not authenticated');
       }

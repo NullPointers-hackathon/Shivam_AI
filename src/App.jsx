@@ -17,6 +17,7 @@ import SpeechAnalyzer from "./pages/speechAnalyzer/SpeechAnalyzer";
 import FeedBack from "./pages/feedback/FeedBack";
 import SolutionPage from "./components/specific/codeEditor/problemComponent/SolutionPage";
 import { Toaster } from "react-hot-toast";
+import CreatePod from "./components/specific/peerConnect/createPod/CreatePod";
 export default function App() {
   return (
     <>
@@ -36,6 +37,7 @@ export default function App() {
                 path="/study-pods/:podId"
                 element={<StudyPodsView />}
               ></Route>
+              <Route path="/create-pod" element={<CreatePod />} />
               <Route path="/peer-connect" element={<PeerConnect />} />
               <Route path="/feedback" element={<FeedBack />} />
               <Route path="/speech-analyzer" element={<SpeechAnalyzer />} />

@@ -1,19 +1,24 @@
 import React, { useState } from "react";
 import { db, storage } from "../../../../firebase";
-import { collection, addDoc } from "firebase/firestore"; // Firestore modular import
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage"; // Storage modular imports
+import { collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import "./createpod.css";
 
 export default function CreatePod() {
   const [podName, setPodName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [uploading, setUploading] = useState(false);
 
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
-      setImage(e.target.files[0]); // Store the selected image file in state
+      console.log("dbjqdnk");
+      const selectedImage = e.target.files[0];
+      setImage(selectedImage);
+      setImagePreview(URL.createObjectURL(selectedImage)); // Create a preview URL for the image
     }
   };
 
@@ -31,15 +36,12 @@ export default function CreatePod() {
 
     setUploading(true);
 
-    // Create a reference to the image in Firebase Storage
     const imageRef = ref(storage, `studyPods/${image.name}`);
 
     try {
-      // Upload the image to Firebase Storage
       await uploadBytes(imageRef, image);
-      const imageUrl = await getDownloadURL(imageRef); // Get the image URL after upload
+      const imageUrl = await getDownloadURL(imageRef);
 
-      // Save the pod details in Firestore
       await addDoc(collection(db, "Study Pods"), {
         name: podName,
         description: description,
@@ -51,6 +53,7 @@ export default function CreatePod() {
       setPodName("");
       setDescription("");
       setImage(null);
+      setImagePreview(null);
       setError("");
     } catch (err) {
       setError("Failed to create Study Pod. Please try again.");
@@ -62,32 +65,52 @@ export default function CreatePod() {
 
   return (
     <div>
-      <h2>Create a New Study Pod</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {success && <p style={{ color: "green" }}>{success}</p>}
-      <form onSubmit={handleSubmit}>
+      <h2 className="create-pod-header">Create a New Study Pod</h2>
+      {error && <p className="create-pod-error">{error}</p>}
+      {success && <p className="create-pod-success">{success}</p>}
+      <form className="create-pod-form" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="podName">Pod Name:</label>
+          <label className="create-pod-label" htmlFor="image">
+            Upload Image:
+          </label>
+          <div className="create-pod-image-upload">
+            {imagePreview ? (
+              <img src={imagePreview} alt="Image preview" />
+            ) : (
+              <span className="create-pod-file-input-label">+</span>
+            )}
+            <input
+              type="file"
+              id="image"
+              className="create-pod-file-input"
+              onChange={handleImageChange}
+            />
+          </div>
+        </div>
+        <div>
+          <label className="create-pod-label" htmlFor="podName">Name:</label>
           <input
             type="text"
             id="podName"
+            className="create-pod-input"
             value={podName}
             onChange={(e) => setPodName(e.target.value)}
           />
         </div>
         <div>
-          <label htmlFor="description">Description:</label>
+          <label className="create-pod-label" htmlFor="description">Description:</label>
           <textarea
             id="description"
+            className="create-pod-textarea"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="image">Upload Image:</label>
-          <input type="file" id="image" onChange={handleImageChange} />
-        </div>
-        <button type="submit" disabled={uploading}>
+        <button
+          type="submit"
+          className="create-pod-button"
+          disabled={uploading}
+        >
           {uploading ? "Creating..." : "Create Pod"}
         </button>
       </form>
