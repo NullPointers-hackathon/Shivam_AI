@@ -1,0 +1,70 @@
+.feedback-form-container {
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .feedback-form-heading {
+    margin-bottom: 10px;
+  }
+  
+  .feedback-form-text {
+    margin-bottom: 15px;
+    
+  }
+  
+  .feedback-form-stars {
+    margin-bottom: 10px;
+  }
+  
+  .feedback-form-star {
+    cursor: pointer;
+    color: #ccc;
+    font-size: 2em;
+    transition: color 0.3s ease;
+  }
+  
+  .feedback-form-star.active {
+    color: #ffd700;
+  }
+  
+  .feedback-form {
+    margin-top: 20px;
+  }
+  
+  .feedback-form-textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    font-size: 1em;
+    background-color: #131314;
+    color: #fff;
+  }
+  
+  .feedback-form-button {
+    background-color: #7f00ff;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    margin-left: 0.6rem;
+  }
+  
+  .feedback-form-button:hover {
+    background-color: #5f00cc;
+  }
+  

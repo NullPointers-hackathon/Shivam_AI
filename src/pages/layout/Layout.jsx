@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Navbar from "../../components/common/navbar/Navbar";
 
 const Layout = () => {
   return (
@@ -13,7 +14,7 @@ const Layout = () => {
           className="layout-left-container"
           style={{ width: "20%", margin: "0", padding: "1rem" }}
         >
-          <h2>Left Sidebar Content</h2> {/* Static left content */}
+          <Navbar />
         </div>
 
         <div

@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { logout } from '../../../redux/slices/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
+import "./logout.css"
 
 const LogoutButton = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const LogoutButton = () => {
   };
 
   return (
-    <button onClick={handleLogout}>
+    <button onClick={handleLogout} className='logout-button'>
       Logout
     </button>
   );

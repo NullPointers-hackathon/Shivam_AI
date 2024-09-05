@@ -1,10 +1,6 @@
-*{
-    padding: 0%;
-    margin: 0%;
-}
 
 .navbar {
-    background-color: #0e0e0e;
+    background-color: #000;
     color: #ffffff;
     width: 300px;
     height: 100vh;
@@ -45,57 +41,48 @@
     outline: none;
   }
   
-  .navbar-clear-all button {
-    background-color: #2c2c2c;
-    border: none;
-    color: #ffffff;
-    padding: 10px 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    width: 285px;
-    height: 40px;
-  }
-  
-  .navbar-history {
+  .sidebar-nav-items {
     flex-grow: 1;
-    width: 100%;
-    color: gainsboro;
   }
   
-  .navbar-history ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .navbar-history li {
-    margin: 30px 15px;
+  .sidebar-nav-item {
     display: flex;
+    width: 16.8rem;
+    text-decoration: none;
     align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 25px;
     font-size: 18px;
-    color: #ffffff;
+    color: #a9a9a9;
+    cursor: pointer;
+    transition: color 0.5s, background-color 0.3s;
+    background-color: #1D1D1F;
+    border-radius: 0.6rem;
   }
   
-  .navbar-history span{
-    margin-right: 10px;
-
+  .sidebar-nav-item i {
+    margin-right: 30px;
+    margin-left: 10px;
+    margin-top: 8px;
+    font-size: 20px;
+  }
+  
+  .sidebar-nav-item.active,
+  .sidebar-nav-item:hover {
+    background:linear-gradient(to right,#296EB4,#AE22CE);
+    text-decoration: none;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 25px;
+    font-size: 18px;
+    color: #a9a9a9;
+    cursor: pointer;
+    transition: color 0.5s, background-color 0.3s;
+    border-radius: 0.6rem;
   }
   .navbar-history .navbar-subtext {
     font-size: 12px;
     color: #aaaaaa;
   }
   
-  .navbar-add-button {
-    margin-top: auto;
-  }
-  
-  .navbar-add-button button {
-    background-color: #3d3d3d;
-    border: none;
-    color: #ffffff;
-    padding: 15px 20px;
-    border-radius: 30%;
-    font-size: 24px;
-    cursor: pointer;
-  }
   
