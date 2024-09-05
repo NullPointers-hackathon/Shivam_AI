@@ -13,6 +13,7 @@ import Theme from "./Theme";
 import SolutionPage from "../src/components/specific/codeEditor/problemComponent/SolutionPage";
 import StudyPods from "./pages/studyPods/StudyPods";
 import StudyPodsView from "./pages/studyPodsView/StudyPodsView";
+import SpeechAnalyzer from "./pages/speechAnalyzer/SpeechAnalyzer";
 import FeedBack from "./pages/feedback/FeedBack";
 export default function App() {
   return (
@@ -34,9 +35,8 @@ export default function App() {
                 element={<StudyPodsView />}
               ></Route>
               <Route path="/peer-connect" element={<PeerConnect />} />
-              <Route path="/peer-connect" element={<PeerConnect />}></Route>
-              <Route path="/buzzwrite" element={<BuzzWrite />} />
               <Route path="/feedback" element={<FeedBack />} />
+            <Route path="/speech-analyzer" element={<SpeechAnalyzer/>}/>
             </Route>
 
             {/* Route with ChakraProvider */}
