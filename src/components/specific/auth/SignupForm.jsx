@@ -23,7 +23,7 @@ const SignupForm = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        navigate('/'); 
+        navigate('/BuzzWrite'); 
       }
     });
 
@@ -56,7 +56,7 @@ const SignupForm = () => {
       );
 
       toast.success('User successfully created!');
-      navigate('/');
+      navigate('/BuzzWrite');
     } catch (err) {
       setError(err.message);
       toast.error(`Signup failed: ${err.message}`);

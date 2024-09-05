@@ -12,7 +12,7 @@ const FacebookButton = () => {
       const { user, accessToken, errorCode, errorMessage } = await FacebookAuth();
       if (user) {
         console.log('User details:', user);
-        navigate("/");
+        navigate("/BuzzWrite");
       } else if (errorCode) {
         console.error('Error during Facebook login:', errorCode, errorMessage);
       }

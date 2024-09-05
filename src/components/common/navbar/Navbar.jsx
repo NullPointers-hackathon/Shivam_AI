@@ -18,7 +18,7 @@ const Navbar = () => {
       route: "/study-pods",
     },
     { label: "Code-Editor", icon: <IoCodeSharp />, route: "/solution-page" },
-    { label: "Speech-Analyser", icon: <IoAnalyticsSharp />, route: "/speech-analyser" },
+    { label: "Speech-Analyzer", icon: <IoAnalyticsSharp />, route: "/speech-analyzer" },
     {
       label: "Feedback",
       icon: <VscFeedback />,

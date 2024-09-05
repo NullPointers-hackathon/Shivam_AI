@@ -1,88 +1,84 @@
-
 .navbar {
-    background-color: #000;
-    color: #ffffff;
-    width: 300px;
-    height: 100vh;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    
-  }
-  
-  .navbar-header {
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar-logo-image {
-    width: 50px; /* Adjust size as per your logo */
-    height: 45px;
-    margin-right: 10px; /* Space between image and text */
-    border-radius: 50%; /* If you want the logo to be circular */
-  }
-  
-  .navbar-logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #00ffff; /* Same light blue/cyan as the image */
-  }
-  
-  .navbar-search-box input {
-    width: 16rem;
-    padding: 15px;
-    background-color: #1f1f1f;
-    border: none;
-    border-radius: 10px;
-    color: #fff;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    outline: none;
-  }
-  
-  .sidebar-nav-items {
-    flex-grow: 1;
-  }
-  
-  .sidebar-nav-item {
-    display: flex;
-    width: 16.8rem;
-    text-decoration: none;
-    align-items: center;
-    padding: 0.5rem;
-    margin-bottom: 25px;
-    font-size: 18px;
-    color: #a9a9a9;
-    cursor: pointer;
-    transition: color 0.5s, background-color 0.3s;
-    background-color: #1D1D1F;
-    border-radius: 0.6rem;
-  }
-  
-  .sidebar-nav-item i {
-    margin-right: 30px;
-    margin-left: 10px;
-    margin-top: 8px;
-    font-size: 20px;
-  }
-  
-  .sidebar-nav-item.active,
-  .sidebar-nav-item:hover {
-    background:linear-gradient(to right,#296EB4,#AE22CE);
-    text-decoration: none;
-    align-items: center;
-    padding: 0.5rem;
-    margin-bottom: 25px;
-    font-size: 18px;
-    color: #a9a9a9;
-    cursor: pointer;
-    transition: color 0.5s, background-color 0.3s;
-    border-radius: 0.6rem;
-  }
-  .navbar-history .navbar-subtext {
-    font-size: 12px;
-    color: #aaaaaa;
-  }
-  
-  
+  background-color: #000;
+  color: #ffffff;
+  width: 300px;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.navbar-header {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo-image {
+  width: 50px; /* Adjust size as per your logo */
+  height: 45px;
+  margin-right: 10px; /* Space between image and text */
+  border-radius: 50%; /* If you want the logo to be circular */
+}
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00ffff; /* Same light blue/cyan as the image */
+}
+
+.navbar-search-box input {
+  width: 15rem;
+  padding: 15px;
+  background-color: #1f1f1f;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  outline: none;
+}
+
+.sidebar-nav-items {
+  flex-grow: 1;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  width: 16rem;
+  text-decoration: none;
+  align-items: center;
+  padding: 0.5rem;
+  margin-bottom: 25px;
+  font-size: 18px;
+  color: #a9a9a9;
+  cursor: pointer;
+  transition: color 0.5s, background-color 0.3s;
+  background-color: #1d1d1f;
+  border-radius: 0.6rem;
+}
+
+.sidebar-nav-item i {
+  margin-right: 30px;
+  margin-left: 10px;
+  margin-top: 8px;
+  font-size: 20px;
+}
+
+.sidebar-nav-item.active,
+.sidebar-nav-item:hover {
+  background: linear-gradient(to right, #296eb4, #ae22ce);
+  text-decoration: none;
+  align-items: center;
+  padding: 0.5rem;
+  margin-bottom: 25px;
+  font-size: 18px;
+  color: #a9a9a9;
+  cursor: pointer;
+  transition: color 0.5s, background-color 0.3s;
+  border-radius: 0.6rem;
+}
+.navbar-history .navbar-subtext {
+  font-size: 12px;
+  color: #aaaaaa;
+}
