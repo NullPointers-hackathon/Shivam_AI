@@ -8,6 +8,9 @@ import Login from "./pages/login/Login";
 import PeerConnect from "./pages/peerConnect/PeerConnect";
 import Layout from "./pages/layout/Layout";
 import BuzzWrite from "./pages/buzzWrite/BuzzWrite";
+import { ChakraProvider } from "@chakra-ui/react";
+import Theme from "./Theme";
+import SolutionPage from "./pages/problemComponent/SolutionPage";
 
 export default function App() {
   return (
@@ -15,13 +18,26 @@ export default function App() {
       <Provider store={store}>
         <Router>
           <Routes>
+            {/* Routes without ChakraProvider */}
             <Route path="/" element={<LandingPage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
+            
+            {/* Routes with Layout */}
             <Route element={<Layout />}>
             <Route path="/peer-connect" element={<PeerConnect />}></Route>
             <Route path="/buzzwrite" element={<BuzzWrite/>}/>
             </Route>
+
+            {/* Route with ChakraProvider */}
+            <Route
+              path="/solution-page"
+              element={
+                <ChakraProvider theme={Theme}>
+                  <SolutionPage />
+                </ChakraProvider>
+              }
+            />
           </Routes>
         </Router>
       </Provider>

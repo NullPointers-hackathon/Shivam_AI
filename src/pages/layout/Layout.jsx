@@ -11,8 +11,7 @@ const Layout = () => {
           <h2>Left Sidebar Content</h2> {/* Static left content */}
         </div>
 
-        {/* Right section where the dynamic content from Outlet will load */}
-        <div className="layout-right-container" style={{ width: '70%', padding: '1rem', }}>
+        <div className="layout-right-container" style={{ width: '80%', padding: '1rem',backgroundColor: "#131314",border:"10px solid #000",borderRadius:"2rem" }}>
           <Outlet /> {/* Renders dynamic route components */}
         </div>
       </div>
