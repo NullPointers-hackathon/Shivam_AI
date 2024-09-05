@@ -15,6 +15,7 @@ import StudyPods from "./pages/studyPods/StudyPods";
 import StudyPodsView from "./pages/studyPodsView/StudyPodsView";
 import SpeechAnalyzer from "./pages/speechAnalyzer/SpeechAnalyzer";
 import FeedBack from "./pages/feedback/FeedBack";
+import SolutionPage from "./components/specific/codeEditor/problemComponent/SolutionPage";
 export default function App() {
   return (
     <>
