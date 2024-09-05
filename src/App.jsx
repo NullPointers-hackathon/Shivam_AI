@@ -16,6 +16,7 @@ import StudyPodsView from "./pages/studyPodsView/StudyPodsView";
 import SpeechAnalyzer from "./pages/speechAnalyzer/SpeechAnalyzer";
 import FeedBack from "./pages/feedback/FeedBack";
 import SolutionPage from "./components/specific/codeEditor/problemComponent/SolutionPage";
+import { Toaster } from "react-hot-toast";
 export default function App() {
   return (
     <>
@@ -43,6 +44,7 @@ export default function App() {
 
             {/* Route with ChakraProvider */}
           </Routes>
+          <Toaster/>
         </Router>
       </Provider>
     </>

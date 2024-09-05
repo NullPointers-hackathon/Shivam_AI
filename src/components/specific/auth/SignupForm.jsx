@@ -23,6 +23,16 @@ const SignupForm = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
+        toast('User successfully signed up!',
+          {
+            icon: '👏',
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+          }
+        );
         navigate('/BuzzWrite'); 
       }
     });
@@ -55,11 +65,30 @@ const SignupForm = () => {
         })
       );
 
-      toast.success('User successfully created!');
+      toast('User successfully signed up!',
+        {
+          icon: '👏',
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        }
+      );
       navigate('/BuzzWrite');
     } catch (err) {
+      toast('Failed to log in!',
+        {
+          icon: '❌',
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        }
+      );
       setError(err.message);
-      toast.error(`Signup failed: ${err.message}`);
+
     } finally {
       setLoading(false);
     }
