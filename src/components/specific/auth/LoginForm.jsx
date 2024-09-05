@@ -28,12 +28,30 @@ const LoginForm = () => {
         username: user.displayName,
         email: user.email
       }));
-      toast.success("User successfully logged in");
-      navigate("/dashboard");
+      toast('User successfully logged in!',
+        {
+          icon: '✅',
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        }
+      );
+      navigate("/BuzzWrite");
     } catch (err) {
       dispatch(loginFailure(err.message));
       setError(err.message);
-      toast.error("Failed to log in");
+      toast('Failed to log in!',
+        {
+          icon: '❌',
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        }
+      );
     }
   };
   
