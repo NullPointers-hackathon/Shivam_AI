@@ -8,6 +8,8 @@ import { signupSuccess } from '../../../redux/slices/authSlice.js';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';  // Import from Firebase auth
 import { doc, setDoc } from 'firebase/firestore'; // Firestore for saving user data
 import { db } from '../../../firebase'; // Import your Firestore config
+import FacebookButton from './FacebookButton.jsx';
+import GoogleButton from './GoogleButton.jsx';
 
 const SignupForm = () => {
   const [username, setUsername] = useState('');
@@ -48,7 +50,7 @@ const SignupForm = () => {
       dispatch(
         signupSuccess({
           uid: user.uid,
-          displayName: user.displayName,
+          username: user.displayName,
           email: user.email,
         })
       );
@@ -104,6 +106,8 @@ const SignupForm = () => {
         {error && <div className="error-message">{error}</div>}
 
         <div className="Signup-divider">or continue with</div>
+        <div className="google-button-login"><FacebookButton /></div>
+        <div className="facebook-button-login"><GoogleButton /></div>
       </form>
     </div>
   );

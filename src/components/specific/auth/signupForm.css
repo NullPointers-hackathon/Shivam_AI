@@ -55,7 +55,7 @@
   font-weight: 600;
 }
 
-input[type="submit"]:hover {
+.form-control-input:hover {
   background-color: #0056b3;
 }
 
@@ -101,4 +101,7 @@ input[type="submit"]:hover {
   
   .Signup-divider::after {
     right: 0;
+  }
+  .google-button-login{
+    margin-bottom: 2rem;
   }

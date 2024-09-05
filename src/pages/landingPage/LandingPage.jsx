@@ -6,6 +6,7 @@ import LandingAbout from "../../components/specific/landingPage/landingAbout/Lan
 import LandingFeatures from "../../components/specific/landingPage/landingFeatures/LandingFeatures";
 import LandingEmail from "../../components/specific/landingPage/landingEmail/LandingEmail";
 import LandingFooter from "../../components/specific/landingPage/landingFooter/LandingFooter";
+import LogoutButton from "../../components/specific/auth/LogoutButton";
 
 export default function LandingPage() {
   return (

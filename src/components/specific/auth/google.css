@@ -1,5 +1,5 @@
-/* src/FacebookLoginButton.css */
-.facebook-login-button {
+/* src/google.css */
+.google-login-button {
     background-color: #222222;
     color: #fff;
     border: 1px solid #343434;
@@ -13,17 +13,14 @@
     justify-content: center;
     display: flex;
   }
-  .login-text{
+.login-text{
     font-size:1rem;
     margin-left: 0.5rem;
 }
-  .facebook-auth-icon{
-    width: 8%;
+  .google-auth-icon{
+    width: 4%;
   }
   .google-login-button:hover {
     background-color: #357ae8;
-  }
-  .facebook-login-button:hover {
-    background-color: #365899;
   }
   
