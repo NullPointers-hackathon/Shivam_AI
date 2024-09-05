@@ -1,0 +1,105 @@
+/* SpeechAnalyzer.css */
+.speech-analyzer-inner-container {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  font-family: "Arial", sans-serif;
+}
+
+.speech-analyzer-textarea-container {
+  display: flex;
+  width: 100%;
+  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.speech-analyzer-textarea {
+  width: 80%;
+  height: 150px;
+  background-color: #1d1d1f;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  resize: none;
+}
+
+.speech-analyzer-lang-button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin: 1rem;
+  margin-left: 6rem;
+  align-items: center;
+}
+
+/* From Uiverse.io by andrew-demchenk0 */
+.speech-analyzer-start-button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 6px 12px;
+  gap: 8px;
+  height: 40px;
+  width: 114px;
+  border: none;
+  background: #1b1b1cde;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 5rem;
+}
+
+.speech-analyzer-lable {
+  line-height: 20px;
+  font-size: 17px;
+  color: #ff342b;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+
+.speech-analyzer-start-button:hover {
+  background: #1b1b1c;
+}
+
+.speech-analyzer-start-button:hover .svg-icon {
+  animation: scale 1s linear infinite;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05) rotate(10deg);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+select#languageSelect {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.speech-analyzer-result {
+  width: 80%;
+  /* background-color: #222; */
+  padding: 20px;
+  border-radius: 10px;
+  /* box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5); */
+  /* text-align: center; */
+  margin-left: 5rem;
+}
+
+.speech-analyzer-pronounciation {
+  text-align: center;
+  font-size: 1rem;
+}
