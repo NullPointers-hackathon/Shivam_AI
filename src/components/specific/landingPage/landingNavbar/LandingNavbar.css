@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .landing-navbar-logo-section {
   display: flex;
   align-items: center;
@@ -35,6 +39,11 @@
   color: rgba(255, 255, 255, 0.6);
   font-size: 1rem;
   cursor: pointer;
+  text-decoration: none;
+}
+.landing-navbar-middle-section h2 a {
+  text-decoration: none;
+  color: inherit;
 }
 .landing-navbar-middle-section h2:hover {
   background: linear-gradient(to right, #296eb4, #ae22ce);
