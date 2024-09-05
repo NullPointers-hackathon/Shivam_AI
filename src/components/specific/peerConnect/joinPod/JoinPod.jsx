@@ -36,8 +36,8 @@ export default function JoinPod({ podId }) {
 
       // Initialize members object if it doesn't exist, else update it
       const updatedMembers = podData?.members
-        ? JSON.stringify({ ...podData.members, [userID]: true })
-        : { [userID]: true };
+        ? { ...podData.members, [userID]: userID } // Store userID as string
+        : { [userID]: userID }; // Initialize the object with userID as a string
 
       // Update the Firestore document with the new member
       await updateDoc(podRef, {
