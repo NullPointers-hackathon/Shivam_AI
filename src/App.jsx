@@ -7,6 +7,7 @@ import store from "./redux/store";
 import Login from "./pages/login/Login";
 import PeerConnect from "./pages/peerConnect/PeerConnect";
 import Layout from "./pages/layout/Layout";
+import BuzzWrite from "./pages/buzzWrite/BuzzWrite";
 import { ChakraProvider } from "@chakra-ui/react";
 import Theme from "./Theme";
 import SolutionPage from "./pages/problemComponent/SolutionPage";
@@ -24,7 +25,8 @@ export default function App() {
             
             {/* Routes with Layout */}
             <Route element={<Layout />}>
-              <Route path="/peer-connect" element={<PeerConnect />} />
+            <Route path="/peer-connect" element={<PeerConnect />}></Route>
+            <Route path="/buzzwrite" element={<BuzzWrite/>}/>
             </Route>
 
             {/* Route with ChakraProvider */}

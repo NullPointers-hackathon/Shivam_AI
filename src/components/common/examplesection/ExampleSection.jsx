@@ -11,7 +11,7 @@ const ExampleSection = () => {
 
   return (
     <div className="example-section">
-      <h2>Examples</h2>
+      <h2 className='example-section-header'>Examples</h2>
       <div className="examples-container">
         {examples.map((example, index) => (
           <div key={index} className="example-box">

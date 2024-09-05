@@ -1,0 +1,22 @@
+.header-main-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  border-bottom: 1px solid #777779;
+  border-radius: 2rem;
+}
+.header-title {
+  font-size: 2rem;
+}
+.header-profile-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.header-download-icon {
+  margin: 0 2rem;
+  font-size: 2rem;
+}
+.header-profile-icon {
+  margin-left: 2rem;
+  font-size: 2rem;
+}
