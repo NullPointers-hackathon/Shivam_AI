@@ -1,6 +1,6 @@
 import React from "react";
 import "./LandingNavbar.css";
-import ShivamLogo from "../../../assets/images/Shivam_Logo.png";
+import ShivamLogo from "../../../../assets/images/Shivam_Logo.png";
 
 export default function LandingNavbar() {
   return (
