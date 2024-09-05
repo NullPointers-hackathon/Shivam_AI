@@ -3,6 +3,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../../components/common/header/Header";
 import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { setTitle } from "../../redux/slices/titleSlice";
 import "./StudyPodsView.css";
 import { db } from "../../firebase";
 export default function StudyPodsView() {
@@ -11,8 +13,12 @@ export default function StudyPodsView() {
   const [isMember, setIsMember] = useState(false);
   const [userID, setUserID] = useState(null);
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+  useEffect(() => {
+    dispatch(setTitle("Study Pods")); //use the title u need
+  }, [dispatch]);
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
