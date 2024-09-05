@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginStart, loginSuccess, loginFailure } from "../../../redux/slices/authSlice";
 import FacebookButton from "./FacebookButton";
+import GoogleButton from "./GoogleButton";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -24,7 +25,7 @@ const LoginForm = () => {
       const { user } = userCredential;
       dispatch(loginSuccess({
         uid: user.uid,
-        displayName: user.displayName,
+        username: user.displayName,
         email: user.email
       }));
       toast.success("User successfully logged in");
@@ -63,7 +64,8 @@ const LoginForm = () => {
         </div>
         <input type="submit" value="Login" className="form-control-input"/>
         <div className="Signup-divider">or continue with</div>
-        <FacebookButton />
+        <div className="google-button-login"><FacebookButton /></div>
+        <div className="facebook-button-login"><GoogleButton /></div>
       </form>
     </div>
   );

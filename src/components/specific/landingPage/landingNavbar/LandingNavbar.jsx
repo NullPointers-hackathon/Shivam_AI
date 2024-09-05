@@ -1,9 +1,10 @@
 import React from "react";
 import "./LandingNavbar.css";
 import ShivamLogo from "../../../../assets/images/Shivam_Logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LandingNavbar() {
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -44,7 +45,7 @@ export default function LandingNavbar() {
       </div>
       {/* 3rd Section  */}
       <div className="landing-navbar-join-us-button">
-        <button>Join Us</button>
+        <button onClick={() => navigate("/signup")}>Join Us</button>
       </div>
     </div>
   );

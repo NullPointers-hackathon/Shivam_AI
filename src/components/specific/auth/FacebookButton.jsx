@@ -3,6 +3,7 @@ import React from 'react';
 import { FacebookAuth } from '../../../firebase';
 import "./facebook.css";
 import { useNavigate } from 'react-router-dom';
+import facebook from "../../../assets/images/facebook2.png"
 
 const FacebookButton = () => {
     const navigate = useNavigate();
@@ -22,7 +23,7 @@ const FacebookButton = () => {
 
   return (
     <button onClick={handleLogin} className="facebook-login-button">
-      Login with Facebook
+      <img src={facebook} alt="" className='facebook-auth-icon' /><h1 className='login-text'>Sign up</h1>
     </button>
   );
 };
