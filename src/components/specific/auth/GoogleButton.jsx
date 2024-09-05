@@ -23,7 +23,7 @@ const GoogleButton = () => {
 
   return (
     <button onClick={handleLogin} className="google-login-button">
-      <img src={google} alt="" className='google-auth-icon' /><h1 className='login-text'>Log in</h1>
+      <img src={google} alt="" className='google-auth-icon' /><h1 className='signup-login-text'>Log in</h1>
     </button>
   );
 };

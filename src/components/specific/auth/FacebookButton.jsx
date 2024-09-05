@@ -23,7 +23,7 @@ const FacebookButton = () => {
 
   return (
     <button onClick={handleLogin} className="facebook-login-button">
-      <img src={facebook} alt="" className='facebook-auth-icon' /><h1 className='login-text'>Sign up</h1>
+      <img src={facebook} alt="" className='facebook-auth-icon' /><h1 className='signup-login-text'>Sign up</h1>
     </button>
   );
 };
