@@ -1,0 +1,101 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+.navbar {
+    background-color: #0e0e0e;
+    color: #ffffff;
+    width: 300px;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+  }
+  
+  .navbar-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-logo-image {
+    width: 50px; /* Adjust size as per your logo */
+    height: 45px;
+    margin-right: 10px; /* Space between image and text */
+    border-radius: 50%; /* If you want the logo to be circular */
+  }
+  
+  .navbar-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ffff; /* Same light blue/cyan as the image */
+  }
+  
+  .navbar-search-box input {
+    width: 16rem;
+    padding: 15px;
+    background-color: #1f1f1f;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    outline: none;
+  }
+  
+  .navbar-clear-all button {
+    background-color: #2c2c2c;
+    border: none;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 285px;
+    height: 40px;
+  }
+  
+  .navbar-history {
+    flex-grow: 1;
+    width: 100%;
+    color: gainsboro;
+  }
+  
+  .navbar-history ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .navbar-history li {
+    margin: 30px 15px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #ffffff;
+  }
+  
+  .navbar-history span{
+    margin-right: 10px;
+
+  }
+  .navbar-history .navbar-subtext {
+    font-size: 12px;
+    color: #aaaaaa;
+  }
+  
+  .navbar-add-button {
+    margin-top: auto;
+  }
+  
+  .navbar-add-button button {
+    background-color: #3d3d3d;
+    border: none;
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 30%;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  

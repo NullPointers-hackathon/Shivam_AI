@@ -1,6 +1,7 @@
 import React from "react";
 import "./LandingNavbar.css";
-import ShivamLogo from "../../../assets/images/Shivam_Logo.png";
+import ShivamLogo from "../../../../assets/images/Shivam_Logo.png";
+import { Link } from "react-router-dom";
 
 export default function LandingNavbar() {
   return (
@@ -28,10 +29,18 @@ export default function LandingNavbar() {
       </div>
       {/* 2nd Section  */}
       <div className="landing-navbar-middle-section">
-        <h2>Home</h2>
-        <h2>About</h2>
-        <h2>Features</h2>
-        <h2>API</h2>
+        <h2>
+          <a href="#Landing-Home">Home</a>
+        </h2>
+        <h2>
+          <a href="#Landing-About">About</a>
+        </h2>
+        <h2>
+          <a href="#Landing-Features">Features</a>
+        </h2>
+        <h2>
+          <a href="#Landing-Email">API</a>
+        </h2>
       </div>
       {/* 3rd Section  */}
       <div className="landing-navbar-join-us-button">

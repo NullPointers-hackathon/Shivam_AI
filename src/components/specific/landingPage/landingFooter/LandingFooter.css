@@ -1,0 +1,36 @@
+.landing-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 7rem;
+}
+.landing-footer-1 {
+  display: flex;
+  align-items: center;
+}
+.landing-footer-logo-section {
+  display: flex;
+  align-items: center;
+}
+.landing-footer-logo-section img {
+  width: 150px;
+}
+
+.landing-footer-logo-section-name h1 {
+  margin: 0;
+  font-size: 65px;
+  color: #8ddeee;
+}
+.landing-footer-logo-section-name h6 {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 10px;
+  text-align: center;
+  background: linear-gradient(to right, #296eb4, #ae22ce);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.landing-footer-2 h3 {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
