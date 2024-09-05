@@ -7,6 +7,7 @@ import store from "./redux/store";
 import Login from "./pages/login/Login";
 import PeerConnect from "./pages/peerConnect/PeerConnect";
 import Layout from "./pages/layout/Layout";
+import BuzzWrite from "./pages/buzzWrite/BuzzWrite";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
             <Route path="/login" element={<Login />} />
             <Route element={<Layout />}>
             <Route path="/peer-connect" element={<PeerConnect />}></Route>
+            <Route path="/buzzwrite" element={<BuzzWrite/>}/>
             </Route>
           </Routes>
         </Router>

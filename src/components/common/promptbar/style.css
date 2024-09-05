@@ -1,43 +1,42 @@
 .prompt-bar {
-    display: flex;
-    align-items: center;
-    background-color: #1c1c1c; 
-    border-radius: 30px;
-    padding: 10px 20px;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .prompt-input {
-    background: none;
-    border: none;
-    color: #ccc; 
-    flex-grow: 1;
-    outline: none;
-    font-size: 16px;
-    padding: 10px;
-  }
-  
-  .prompt-input::placeholder {
-    color: #777; 
-  }
-  
-  .prompt-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #ccc; 
-    padding-left: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .prompt-button:hover {
-    color: #fff; 
-  }
-  
-  .feather.feather-send {
-    width: 24px;
-    height: 24px;
-  }
-  
+  display: flex;
+  align-items: center;
+  background-color: #020203;
+  border-radius: 30px;
+  padding: 10px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.prompt-input {
+  background: none;
+  border: none;
+  color: #ccc;
+  flex-grow: 1;
+  outline: none;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.prompt-input::placeholder {
+  color: #777;
+}
+
+.prompt-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ccc;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.prompt-button:hover {
+  color: #fff;
+}
+
+.feather.feather-send {
+  width: 24px;
+  height: 24px;
+}
