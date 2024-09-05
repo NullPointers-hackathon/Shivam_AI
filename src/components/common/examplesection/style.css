@@ -36,4 +36,5 @@
 .example-box:hover {
   background-color: #333;
   color: #fff;
+  cursor: pointer;
 }

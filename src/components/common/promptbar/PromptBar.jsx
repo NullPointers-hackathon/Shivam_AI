@@ -1,10 +1,7 @@
-// PromptBar.js
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
 
-const PromptBar = ({ onResponseGenerated }) => {
-  const [inputValue, setInputValue] = useState("");
-
+const PromptBar = ({ onResponseGenerated, inputValue, setInputValue }) => { // Receive props
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -20,7 +17,7 @@ const PromptBar = ({ onResponseGenerated }) => {
       });
       if (response.ok) {
         const result = await response.json();
-        onResponseGenerated(inputValue,result.generated_text);
+        onResponseGenerated(inputValue, result.generated_text);
       } else {
         console.error("Error fetching data");
       }
@@ -35,7 +32,7 @@ const PromptBar = ({ onResponseGenerated }) => {
         type="text"
         placeholder="Let the magic begin, Ask a question"
         className="prompt-input"
-        value={inputValue}
+        value={inputValue} // Use inputValue from props
         onChange={handleInputChange}
       />
       <button className="prompt-button" onClick={handleSubmit}>

@@ -10,7 +10,7 @@ const Login = () => {
         <div className="login-header">
           <h1>Login to your account</h1>
           <p>
-            Don't have an account? <a href="/signup">SignUp</a>
+            Don't have an account? <a href="/signup">Sign Up</a>
           </p>
         </div>
         <div className="loginForm-container">

@@ -5,14 +5,12 @@
 }
 
 .outputdisplay-output-display {
-  /* background-color: #1b1b1d; */
   color: #fff;
   padding: 20px;
   border-radius: 10px;
   font-family: Arial, sans-serif;
   width: 80%;
   margin: 0 auto;
-  /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); */
 }
 
 .outputdisplay-section {
@@ -43,4 +41,23 @@
 
 .outputdisplay-para {
   margin: 0;
+}
+
+.outputdisplay-speaker,
+.control-button {
+  display: flex;
+  margin-top: 1rem;
+  background-color: #1b1b1d;
+  padding: 1px;
+  border-radius: 8px;
+  width: 1.5rem;
+  height: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.outputdisplay-speech-controls {
+  display: flex;
+  gap: 0.5rem;
 }

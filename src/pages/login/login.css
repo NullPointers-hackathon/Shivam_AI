@@ -1,29 +1,30 @@
 .Login-main-container {
-    display: flex;
-    margin: 0;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .login-left-container {
-    width: 35%;
-    height: 100%;
-    padding: 1rem;
-    padding-left: 3rem;
-    
-  }
-  .login-right-container {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    position: fixed;
-    margin: 0;
-    top: 0;
-    right: 0;
-    
-  }
-  .login-image {
-    height: 85%;
-    width: 65%;
-    border-radius: 2rem;
-    margin: auto;
-  }
+  display: flex;
+  margin: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+.login-left-container {
+  width: 35%;
+  height: 100%;
+  padding: 1rem;
+  padding-left: 3rem;
+}
+.login-right-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  margin: 0;
+  top: 0;
+  right: 0;
+}
+.login-image {
+  height: 85%;
+  width: 65%;
+  border-radius: 2rem;
+  margin: auto;
+}
+.login-header p a {
+  text-decoration: none;
+}

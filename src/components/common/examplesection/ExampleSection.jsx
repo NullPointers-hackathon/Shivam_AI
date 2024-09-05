@@ -1,12 +1,12 @@
 import React from 'react';
 import './style.css'; 
 
-const ExampleSection = () => {
+const ExampleSection = ({ onExampleClick }) => { // Receive function as prop
   const examples = [
-    "How to connect langchain to search engines with serpapI?",
-    "How do I use GPT and wolframAlpha?",
-    "How to load and index a pdf",
-    "What is AgentExecutor and sequential chain?"
+    "Explain the basics of photosynthesis for a 10-year-old.",
+    "Explain how to multiply fractions in a simple way.",
+    "Describe the basic functions of a smartphone.",
+    "Write an introduction to artificial intelligence for beginners."
   ];
 
   return (
@@ -14,7 +14,11 @@ const ExampleSection = () => {
       <h2 className='example-section-header'>Examples</h2>
       <div className="examples-container">
         {examples.map((example, index) => (
-          <div key={index} className="example-box">
+          <div
+            key={index}
+            className="example-box"
+            onClick={() => onExampleClick(example)} // Call function on click
+          >
             {example}
           </div>
         ))}
