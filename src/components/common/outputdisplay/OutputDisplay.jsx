@@ -62,17 +62,18 @@ const OutputDisplay = ({ userPrompt, promptOutput }) => {
                 />
               </div>
             ) : (
-              <div className="speech-controls">
-                <button onClick={pause} className="outputdisplay-speech-controls">
-                  <FaPauseCircle />
-                </button>
-                <button onClick={resume} className="outputdisplay-speech-controls">
-                  <GrResume />
-                </button>
-                <button onClick={() => { stop(); setLocalIsSpeaking(false); }} className="outputdisplay-speech-controls">
-                  <FaStopCircle />
-                </button>
-              </div>
+              <div className="outputdisplay-control-button">
+  <button onClick={pause} className="outputdisplay-speech-controls" aria-label="Pause speech">
+    <FaPauseCircle />
+  </button>
+  <button onClick={resume} className="outputdisplay-speech-controls" aria-label="Resume speech">
+    <GrResume />
+  </button>
+  <button onClick={() => { stop(); setLocalIsSpeaking(false); }} className="outputdisplay-speech-controls" aria-label="Stop speech">
+    <FaStopCircle />
+  </button>
+</div>
+
             )}
           </div>
         </div>
