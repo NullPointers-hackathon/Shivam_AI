@@ -17,7 +17,7 @@ const BuzzWrite = () => {
   const [inputValue, setInputValue] = useState(""); // State for the input value
 
   useEffect(() => {
-    dispatch(setTitle("BuzzWriter"));
+    dispatch(setTitle("BuzzWrite"));
   }, [dispatch]);
 
   const handleResponseGenerated = (userText, generatedText) => {

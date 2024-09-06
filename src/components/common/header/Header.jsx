@@ -15,8 +15,6 @@ const Header = ({headername}) => {
     className='header-main-container'>
         <div className="header-title">{title}</div>
         <div className="header-profile-container">
-            {title=="BuzzWriter"?    <div className="header-download-icon"><FiDownload />
-                </div> : " "}
             <div className="header-profile-icon"><FaUserCircle />
             </div>
         </div>
