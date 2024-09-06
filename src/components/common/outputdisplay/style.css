@@ -42,12 +42,17 @@
 .outputdisplay-para {
   margin: 0;
 }
-
-.outputdisplay-speaker,
-.control-button {
+.outputdisplay-control-button {
   display: flex;
+  flex-direction: row;
+  gap: 0.4rem;
+}
+.outputdisplay-speaker,
+.outputdisplay-speech-controls {
+  display: flex;
+  flex-direction: row;
   margin-top: 1rem;
-  background-color: #1b1b1d;
+  background-color: #2a2a2e;
   padding: 1px;
   border-radius: 8px;
   width: 1.5rem;
@@ -55,6 +60,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  color: #fff;
 }
 
 .outputdisplay-speech-controls {
