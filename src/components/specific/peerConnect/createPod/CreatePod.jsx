@@ -14,16 +14,20 @@ export default function CreatePod() {
   const [uploading, setUploading] = useState(false);
 
   const handleImageChange = (e) => {
+    console.log("File input change event triggered");
     if (e.target.files[0]) {
-      console.log("dbjqdnk");
+      console.log("Image selected");
       const selectedImage = e.target.files[0];
       setImage(selectedImage);
-      setImagePreview(URL.createObjectURL(selectedImage)); // Create a preview URL for the image
+      setImagePreview(URL.createObjectURL(selectedImage));
+    } else {
+      console.log("No file selected");
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Submit button clicked");
     if (!podName || !description) {
       setError("Pod name and description are required.");
       return;
@@ -39,8 +43,10 @@ export default function CreatePod() {
     const imageRef = ref(storage, `studyPods/${image.name}`);
 
     try {
+      console.log("Uploading image...");
       await uploadBytes(imageRef, image);
       const imageUrl = await getDownloadURL(imageRef);
+      console.log("Image uploaded and URL retrieved");
 
       await addDoc(collection(db, "Study Pods"), {
         name: podName,
@@ -56,8 +62,8 @@ export default function CreatePod() {
       setImagePreview(null);
       setError("");
     } catch (err) {
+      console.error("Error creating Study Pod:", err);
       setError("Failed to create Study Pod. Please try again.");
-      console.error(err);
     } finally {
       setUploading(false);
     }
@@ -73,9 +79,16 @@ export default function CreatePod() {
           <label className="create-pod-label" htmlFor="image">
             Upload Image:
           </label>
-          <div className="create-pod-image-upload">
+          <div
+            className="create-pod-image-upload"
+            onClick={() => document.getElementById("image").click()}
+          >
             {imagePreview ? (
-              <img src={imagePreview} alt="Image preview" />
+              <img
+                src={imagePreview}
+                alt="Image preview"
+                className="create-pod-image-preview"
+              />
             ) : (
               <span className="create-pod-file-input-label">+</span>
             )}
@@ -88,7 +101,9 @@ export default function CreatePod() {
           </div>
         </div>
         <div>
-          <label className="create-pod-label" htmlFor="podName">Name:</label>
+          <label className="create-pod-label" htmlFor="podName">
+            Name:
+          </label>
           <input
             type="text"
             id="podName"
@@ -98,7 +113,9 @@ export default function CreatePod() {
           />
         </div>
         <div>
-          <label className="create-pod-label" htmlFor="description">Description:</label>
+          <label className="create-pod-label" htmlFor="description">
+            Description:
+          </label>
           <textarea
             id="description"
             className="create-pod-textarea"
