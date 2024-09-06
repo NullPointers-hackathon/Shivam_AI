@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import Shivam_logo from "../../../assets/images/Shivam_Logo.png";
 import { IoCodeSharp } from "react-icons/io5";
@@ -10,6 +10,8 @@ import { NavLink } from "react-router-dom";
 import LogoutButton from "../../specific/auth/LogoutButton";
 
 const Navbar = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const navItems = [
     { label: "BuzzWrite", icon: <FaPen />, route: "/BuzzWrite" },
     {
@@ -29,18 +31,30 @@ const Navbar = () => {
       route: "/feedback",
     },
   ];
+
+  // Filter navItems based on search query
+  const filteredNavItems = navItems.filter(item =>
+    item.label.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="navbar">
       <div className="navbar-header">
         <img src={Shivam_logo} alt="Logo" className="navbar-logo-image" />
         <div className="navbar-logo">SHIVAM</div>
       </div>
+
       <div className="navbar-search-box">
-        <input type="text" placeholder="Search....." />
+        <input
+          type="text"
+          placeholder="Search....."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)} // Update the search query
+        />
       </div>
 
       <div className="sidebar-nav-items">
-        {navItems.map((item, index) => (
+        {filteredNavItems.map((item, index) => (
           <NavLink
             key={index}
             to={item.route}
