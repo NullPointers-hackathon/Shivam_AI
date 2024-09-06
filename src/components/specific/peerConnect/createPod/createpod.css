@@ -4,7 +4,7 @@
 }
 
 .create-pod-form {
-  max-width: 400px;
+  width: 500px;
   margin: 0 auto;
   padding: 20px;
   background-color: #1c1c1c; /* Slightly lighter dark background */
@@ -24,7 +24,7 @@
 
 .create-pod-input,
 .create-pod-textarea {
-  width: 100%;
+  width: 97%;
   margin-top: 1rem;
   padding: 10px;
   border: none;
