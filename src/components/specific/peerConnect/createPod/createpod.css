@@ -1,105 +1,105 @@
-/* Styles for the CreatePod component */
+.create-pod-header {
+  text-align: center;
+  color: #fff;
+}
 
-  
-  .create-pod-header {
-    text-align: center;
-    color: #fff;
-  }
-  
-  .create-pod-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-     /* Slightly lighter dark background */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .create-pod-form div {
-    margin-bottom: 15px;
-  }
-  
-  .create-pod-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #b0b0b0; /* Lighter gray for labels */
-  }
-  
-  .create-pod-input,
-  .create-pod-textarea {
-    width: 100%;
-    height: 4vh;
-    margin-top: 1rem;
-    padding: 10px;
-    border: none;
-    border-radius: 0.6rem;
-    background-color: #2b2b2b; /* Input background */
-    color: #fff;
-  }
-  .create-pod-textarea {
-    min-height: 18vh;
-  }
-  .create-pod-file-input {
-    color: #b0b0b0; /* Gray color for file input */
-    border: 1px solid #000;
-    border-radius: 50px;
-  }
-  
-  .create-pod-button {
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(45deg, #6a00ff, #00d4ff); /* Gradient button */
-    border: none;
-    border-radius: 25px;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .create-pod-button:disabled {
-    background: #888; /* Gray for disabled state */
-  }
-  
-  .create-pod-button:hover {
-    background: linear-gradient(45deg, #5a00df, #00b4df); /* Darker gradient on hover */
-  }
-  .create-pod-image-upload {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #2b2b2b;
-    border: 2px solid #b0b0b0;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
-  }
-  
-  .create-pod-image-upload img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .create-pod-image-upload input[type="file"] {
-    display: none;
-  }
-  
-  .create-pod-message {
-    text-align: center;
-    font-size: 14px;
-  }
-  
-  .create-pod-error {
-    color: #ff4c4c; /* Bright red for error messages */
-  }
-  
-  .create-pod-success {
-    color: #4caf50; /* Bright green for success messages */
-  }
-  
+.create-pod-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1c1c1c; /* Slightly lighter dark background */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.create-pod-form div {
+  margin-bottom: 15px;
+}
+
+.create-pod-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #b0b0b0; /* Lighter gray for labels */
+}
+
+.create-pod-input,
+.create-pod-textarea {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 10px;
+  border: none;
+  border-radius: 0.6rem;
+  background-color: #2b2b2b; /* Input background */
+  color: #fff;
+}
+
+.create-pod-textarea {
+  min-height: 18vh;
+}
+
+.create-pod-file-input {
+  display: none; /* Hide the actual file input */
+}
+
+.create-pod-image-upload {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #2b2b2b;
+  border: 2px solid #b0b0b0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.create-pod-image-upload:hover {
+  border-color: #00d4ff; /* Change border color on hover */
+}
+
+.create-pod-image-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.create-pod-file-input-label {
+  font-size: 2rem;
+  color: #b0b0b0;
+}
+
+.create-pod-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(45deg, #6a00ff, #00d4ff); /* Gradient button */
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.create-pod-button:disabled {
+  background: #888; /* Gray for disabled state */
+}
+
+.create-pod-button:hover {
+  background: linear-gradient(
+    45deg,
+    #5a00df,
+    #00b4df
+  ); /* Darker gradient on hover */
+}
+
+.create-pod-error {
+  color: #ff4c4c; /* Bright red for error messages */
+}
+
+.create-pod-success {
+  color: #4caf50; /* Bright green for success messages */
+}
